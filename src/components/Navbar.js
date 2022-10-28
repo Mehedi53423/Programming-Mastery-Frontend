@@ -11,20 +11,21 @@ const Navbar = () => {
     "flex flex-col items-center md:hidden bg-slate-200 rounded-b-xl container mx-auto pb-4 shadow-xl text-xl";
   const mobileNavNotClicked = "hidden";
 
+  const title = "{Programming Mastery}";
+
   const openClicked = () => {
     setClicked(true);
   };
   const closeClicked = () => {
     setClicked(false);
   };
+
   return (
     <div>
       <div className="container mx-auto md:flex justify-between mt-5 bg-slate-200 shadow-xl rounded-2xl p-4 hidden">
         <NavLink className="font-bold text-3xl text-indigo-400" to="/">
-          <span className="text-white  px-2 py-1 rounded-xl">
-            <img src={Logo} className="h-24" alt="Logo" />
-          </span>
-          <span className="pl-2"></span>
+          <img src={Logo} className="h-24" alt="Logo" />
+          <div className="pl-2">{title}</div>
         </NavLink>
         <div className="font-bold text-2xl text-indigo-400">
           <NavLink
