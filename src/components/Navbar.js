@@ -8,7 +8,7 @@ const Navbar = () => {
     "px-3 py-1 text-indigo-500 underline hover:text-indigo-600";
   const notActiveClassName = "px-3 py-1 hover:text-indigo-600";
   const mobileNavClicked =
-    "flex flex-col items-center md:hidden bg-slate-200 rounded-b-xl container mx-auto pb-4 shadow-xl text-xl";
+    "flex flex-col items-center md:hidden bg-white rounded-b-xl container mx-auto pb-4 shadow-xl text-xl";
   const mobileNavNotClicked = "hidden";
 
   const title = "{Programming Mastery}";
@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="container mx-auto md:flex justify-between mt-5 bg-slate-200 shadow-xl rounded-2xl p-4 hidden">
+      <div className="container mx-auto md:flex justify-between mt-5 bg-white p-4 hidden items-center">
         <NavLink
           className="font-bold text-3xl text-[#2D357D] flex items-center"
           to="/"
@@ -30,7 +30,7 @@ const Navbar = () => {
           <img src={Logo} className="h-16" alt="Logo" />
           <div className="font-merienda">{title}</div>
         </NavLink>
-        <div className="font-bold text-2xl text-indigo-400">
+        <div className="font-bold text-2xl text-[#2D357D]">
           <NavLink
             to="/Home"
             className={({ isActive }) =>
@@ -40,7 +40,7 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/Blog"
+            to="/Courses"
             className={({ isActive }) =>
               isActive ? activeClassName : notActiveClassName
             }
@@ -48,7 +48,7 @@ const Navbar = () => {
             Courses
           </NavLink>
           <NavLink
-            to="/Blog"
+            to="/FAQ"
             className={({ isActive }) =>
               isActive ? activeClassName : notActiveClassName
             }
@@ -64,7 +64,7 @@ const Navbar = () => {
             Blog
           </NavLink>
           <NavLink
-            to="/Blog"
+            to="/Login"
             className={({ isActive }) =>
               isActive ? activeClassName : notActiveClassName
             }
@@ -73,13 +73,14 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="container mx-auto bg-slate-200 shadow-xl flex justify-between p-4 md:hidden">
+      <div className="container mx-auto bg-white shadow-xl flex justify-between p-4 md:hidden">
         <div>
-          <NavLink className="font-bold text-3xl text-indigo-400" to="/">
-            <span className="text-white bg-indigo-400 px-2 py-1 rounded-xl">
-              <img src={Logo} className="h-24" alt="Logo" />
-            </span>
-            <span className="pl-2">Quizzer</span>
+          <NavLink
+            className="font-bold text-xl text-[#2D357D] flex items-center"
+            to="/"
+          >
+            <img src={Logo} className="h-10" alt="Logo" />
+            <div className="font-merienda">{title}</div>
           </NavLink>
         </div>
         <button
@@ -120,11 +121,20 @@ const Navbar = () => {
         </button>
       </div>
       <div className={clicked ? mobileNavClicked : mobileNavNotClicked}>
-        <NavLink to="/Home" className="px-3 py-1 text-indigo-500">
+        <NavLink to="/Home" className="px-3 py-1 text-[#2D357D]">
           Home
         </NavLink>
-        <NavLink to="/Blog" className="px-3 py-1 text-indigo-500">
+        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+          Courses
+        </NavLink>
+        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+          FAQ
+        </NavLink>
+        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
           Blog
+        </NavLink>
+        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+          Login
         </NavLink>
       </div>
     </div>
