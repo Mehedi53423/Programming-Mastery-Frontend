@@ -23,9 +23,12 @@ const Navbar = () => {
   return (
     <div>
       <div className="container mx-auto md:flex justify-between mt-5 bg-slate-200 shadow-xl rounded-2xl p-4 hidden">
-        <NavLink className="font-bold text-3xl text-indigo-400" to="/">
-          <img src={Logo} className="h-24" alt="Logo" />
-          <div className="pl-2">{title}</div>
+        <NavLink
+          className="font-bold text-3xl text-[#2D357D] flex items-center"
+          to="/"
+        >
+          <img src={Logo} className="h-16" alt="Logo" />
+          <div className="font-merienda">{title}</div>
         </NavLink>
         <div className="font-bold text-2xl text-indigo-400">
           <NavLink
@@ -42,7 +45,31 @@ const Navbar = () => {
               isActive ? activeClassName : notActiveClassName
             }
           >
+            Courses
+          </NavLink>
+          <NavLink
+            to="/Blog"
+            className={({ isActive }) =>
+              isActive ? activeClassName : notActiveClassName
+            }
+          >
+            FAQ
+          </NavLink>
+          <NavLink
+            to="/Blog"
+            className={({ isActive }) =>
+              isActive ? activeClassName : notActiveClassName
+            }
+          >
             Blog
+          </NavLink>
+          <NavLink
+            to="/Blog"
+            className={({ isActive }) =>
+              isActive ? activeClassName : notActiveClassName
+            }
+          >
+            Login
           </NavLink>
         </div>
       </div>

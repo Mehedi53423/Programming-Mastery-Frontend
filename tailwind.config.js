@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        amiri: "'Amiri Quran', serif",
+        messiri: "'El Messiri', sans-serif",
+        merienda: "'Merienda', cursive",
+        merienda_one: "'Merienda One', cursive",
+      },
+    },
   },
   plugins: [],
 };
