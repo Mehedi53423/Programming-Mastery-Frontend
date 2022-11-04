@@ -243,16 +243,16 @@ const Navbar = () => {
         <NavLink to="/Home" className="px-3 py-1 text-[#2D357D]">
           Home
         </NavLink>
-        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+        <NavLink to="/Courses" className="px-3 py-1 text-[#2D357D]">
           Courses
         </NavLink>
-        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+        <NavLink to="/FAQ" className="px-3 py-1 text-[#2D357D]">
           FAQ
         </NavLink>
         <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
           Blog
         </NavLink>
-        <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
+        <NavLink to="/Login" className="px-3 py-1 text-[#2D357D]">
           Login
         </NavLink>
       </div>
