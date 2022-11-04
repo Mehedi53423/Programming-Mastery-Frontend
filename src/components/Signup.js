@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import SignupGif from "../assets/Signup.gif";
 
 const Signup = () => {
@@ -15,7 +16,7 @@ const Signup = () => {
               <i className="fa-solid fa-user border p-3 rounded-l-lg"></i>
               <input
                 type="text"
-                className="border border-l-0 p-2 rounded-r-lg outline-none w-1/2"
+                className="border border-l-0 p-2 rounded-r-lg outline-none md:w-1/2"
                 placeholder="Full Name"
                 required
               />
@@ -24,7 +25,7 @@ const Signup = () => {
               <i class="fa-solid fa-envelope border p-3 rounded-l-lg"></i>
               <input
                 type="email"
-                className="border border-l-0 my-4 p-2 rounded-r-lg outline-none w-1/2"
+                className="border border-l-0 my-4 p-2 rounded-r-lg outline-none md:w-1/2"
                 placeholder="Email"
                 required
               />
@@ -42,9 +43,12 @@ const Signup = () => {
               <i class="fa-solid fa-user-plus pr-1"></i>
               Signup
             </button>
-            <a href="/Login" className="font-bold text-lg">
+            <a href="/Login" className="font-bold text-lg hidden md:block">
               Already Have An Account?
             </a>
+            <NavLink to="/Login" className="font-bold text-lg md:hidden block">
+              Already Have An Account?
+            </NavLink>
           </form>
         </div>
         <div className="md:w-1/2 md:flex hidden justify-center">
