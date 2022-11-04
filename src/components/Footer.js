@@ -5,13 +5,13 @@ const Footer = () => {
     <footer className="flex justify-center">
       <div className="border-t-2 mt-5 pt-5 md:absolute md:bottom-5 container left-auto right-auto">
         <div className="md:flex justify-between font-bold text-lg">
-          <h1 className="pl-5 hidden md:block">
+          <p className="pl-5 hidden md:block">
             &#169; 2022 Programming Mastery&#8482;. All Rights Reserved.
-          </h1>
-          <h1 className="pl-5 md:hidden text-center pb-5">
+          </p>
+          <p className="pl-5 md:hidden text-center pb-5">
             &#169; 2022 Programming Mastery&#8482;. <br />
             All Rights Reserved.
-          </h1>
+          </p>
           <div className="md:block hidden">
             <a href="https://www.facebook.com" title="Facebook">
               <i className="fa-brands fa-facebook fa-xl px-5 hover:text-blue-400"></i>
