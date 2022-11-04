@@ -5,7 +5,7 @@ import SignupGif from "../assets/Signup.gif";
 const Signup = () => {
   return (
     <div className="container mx-auto md:mt-10">
-      <div className="flex items-center">
+      <div className="md:flex items-center">
         <div className="md:w-1/2 py-24 md:drop-shadow-2xl">
           <h1 className="text-center font-bold text-2xl">Signup</h1>
           <form
@@ -34,7 +34,7 @@ const Signup = () => {
               <i className="fa-sharp fa-solid fa-lock border p-3 rounded-l-lg"></i>
               <input
                 type="password"
-                className="border border-l-0 p-2 rounded-r-lg outline-none w-1/2"
+                className="border border-l-0 p-2 rounded-r-lg outline-none md:w-1/2"
                 placeholder="Password"
                 required
               />
