@@ -6,7 +6,7 @@ const FAQ = () => {
   return (
     <div className="container mx-auto md:mt-36 mt-10">
       <div className="flex justify-center">
-        <div className="md:w-1/2 flex justify-center items-center">
+        <div className="md:w-1/2 flex justify-center items-center my-16">
           <img src={Questions} alt="Questions" />
         </div>
         <div className="md:w-1/2">
@@ -15,21 +15,40 @@ const FAQ = () => {
           </h1>
           <Accordion alwaysOpen={true} flush={true}>
             <Accordion.Panel>
-              <Accordion.Title>First Question?</Accordion.Title>
+              <Accordion.Title>How to create an account?</Accordion.Title>
               <Accordion.Content>
-                <p>1</p>
+                <p className="text-justify">
+                  By signing up, you can create an account.
+                </p>
               </Accordion.Content>
             </Accordion.Panel>
             <Accordion.Panel>
-              <Accordion.Title>Second Question?</Accordion.Title>
+              <Accordion.Title>How to login?</Accordion.Title>
               <Accordion.Content>
-                <p>2</p>
+                <p className="text-justify">
+                  Go to login tab. Then enter your email and password.
+                </p>
               </Accordion.Content>
             </Accordion.Panel>
             <Accordion.Panel>
-              <Accordion.Title>Third Question?</Accordion.Title>
+              <Accordion.Title>
+                How to start learning programming?
+              </Accordion.Title>
               <Accordion.Content>
-                <p>3</p>
+                <p className="text-justify">
+                  By purchasing our pro subscription, you can start learning
+                  programming.
+                </p>
+              </Accordion.Content>
+            </Accordion.Panel>
+            <Accordion.Panel>
+              <Accordion.Title>How to download course outline?</Accordion.Title>
+              <Accordion.Content>
+                <p className="text-justify">
+                  In any course details, there is a download button at the
+                  bottom of the page. By clicking the download button, you can
+                  download the course outline.
+                </p>
               </Accordion.Content>
             </Accordion.Panel>
           </Accordion>
