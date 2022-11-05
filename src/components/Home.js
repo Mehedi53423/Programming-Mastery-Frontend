@@ -3,7 +3,7 @@ import HomeGif from "../assets/HomeGif.gif";
 
 const Home = () => {
   return (
-    <div className="container mx-auto md:mt-10">
+    <div className="container mx-auto md:mt-36 mt-10">
       <div className="flex justify-center items-center">
         <div className="md:w-1/2 text-center">
           <p className="font-bold text-3xl">

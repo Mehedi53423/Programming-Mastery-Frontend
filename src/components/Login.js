@@ -4,7 +4,7 @@ import LoginGif from "../assets/Login.gif";
 
 const Login = () => {
   return (
-    <div className="container mx-auto md:mt-10">
+    <div className="container mx-auto md:mt-36 mt-10">
       <div className="md:flex items-center">
         <div className="md:w-1/2 md:flex hidden justify-center">
           <img src={LoginGif} alt="Login" />
@@ -16,7 +16,7 @@ const Login = () => {
               <i class="fa-solid fa-envelope border p-3 rounded-l-lg"></i>
               <input
                 type="email"
-                className="border border-l-0 my-4 p-2 rounded-r-lg outline-none md:w-1/2"
+                className="border-l-0 border-slate-200 my-4 py-2.5 rounded-r-lg outline-none md:w-1/2 focus:ring-0 focus:border-slate-200"
                 placeholder="Email"
                 required
               />
@@ -25,7 +25,7 @@ const Login = () => {
               <i className="fa-sharp fa-solid fa-lock border p-3 rounded-l-lg"></i>
               <input
                 type="password"
-                className="border border-l-0 p-2 rounded-r-lg outline-none md:w-1/2"
+                className="border-l-0 border-slate-200 py-2.5 rounded-r-lg md:w-1/2 focus:ring-0 focus:border-slate-200 outline-none"
                 placeholder="Password"
                 required
               />

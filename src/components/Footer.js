@@ -2,13 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center">
-      <div className="border-t-2 mt-5 pt-5 md:absolute md:bottom-5 container left-auto right-auto">
+    <footer className="flex justify-center lg:fixed lg:bottom-0 lg:bg-white w-full mt-5">
+      <div className="border-t-2 container py-5">
         <div className="md:flex justify-between font-bold text-lg">
           <p className="pl-5 hidden md:block">
             &#169; 2022 Programming Mastery&#8482;. All Rights Reserved.
           </p>
-          <p className="pl-5 md:hidden text-center pb-5">
+          <p className="pl-5 md:hidden text-center pb-2">
             &#169; 2022 Programming Mastery&#8482;. <br />
             All Rights Reserved.
           </p>
