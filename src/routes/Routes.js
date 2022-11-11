@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../components/Blog";
+import Course from "../components/Course";
 import Courses from "../components/Courses";
 import Error from "../components/Error";
 import FAQ from "../components/FAQ";
@@ -15,19 +16,23 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        // loader: async () => {
-        //   return fetch("https://openapi.programming-hero.com/api/quiz");
-        // },
         element: <Home></Home>,
       },
       {
         path: "Home",
-        // loader: async () => {
-        //   return fetch("https://openapi.programming-hero.com/api/quiz");
-        // },
         element: <Home></Home>,
       },
-      { path: "Courses", element: <Courses></Courses> },
+      {
+        path: "Course/:id",
+        element: <Course></Course>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/Courses/${params.id}`),
+      },
+      {
+        path: "Courses",
+        element: <Courses></Courses>,
+        loader: () => fetch(`http://localhost:5000/categories`),
+      },
       { path: "FAQ", element: <FAQ></FAQ> },
       { path: "Blog", element: <Blog></Blog> },
       { path: "Login", element: <Login></Login> },

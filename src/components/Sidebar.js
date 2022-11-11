@@ -12,11 +12,11 @@ const Sidebar = () => {
   return (
     <div className="w-full">
       {categories.map((category) => (
-        <p key={category.id} className="border mx-1 my-2 rounded-lg">
-          <Link className="py-1 px-2 font-semibold text-lg">
+        <Link key={category.id} to={`/Course/${category.id}`}>
+          <p className="px-4 py-2 border m-2 rounded-lg font-semibold text-lg hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">
             {category.name}
-          </Link>
-        </p>
+          </p>
+        </Link>
       ))}
     </div>
   );

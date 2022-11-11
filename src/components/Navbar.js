@@ -60,7 +60,7 @@ const Navbar = () => {
             Home
           </NavLink>
           <NavLink
-            to="/Courses"
+            to="Courses"
             className={({ isActive }) =>
               isActive ? activeClassName : notActiveClassName
             }
