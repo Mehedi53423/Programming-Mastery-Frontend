@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
+import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
   const [mode, setMode] = useState("Lite Mode");
+
+  const { user, logOut } = useContext(AuthContext);
+
   const activeClassName =
     "px-3 py-1 text-indigo-500 underline hover:text-indigo-600 flex items-center";
   const notActiveClassName =
@@ -14,6 +18,12 @@ const Navbar = () => {
   const mobileNavNotClicked = "hidden";
 
   const title = "{Programming Mastery}";
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch(console.error());
+  };
 
   const openClicked = () => {
     setClicked(true);
@@ -167,28 +177,65 @@ const Navbar = () => {
                 </>
               )}
             </button>
-            <NavLink
-              to="/Login"
-              className={({ isActive }) =>
-                isActive ? activeClassName : notActiveClassName
-              }
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
+            {user ? (
+              <>
+                <NavLink to="/UserProfile">
+                  {user?.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="Profile pic"
+                      title={user?.displayName}
+                      className="rounded-full w-12"
+                    />
+                  ) : (
+                    <i className="fa-regular fa-circle-user"></i>
+                  )}
+                </NavLink>
+                <button
+                  className="border rounded-lg ml-4 px-2 py-1 hover:bg-red-500 hover:text-white hover:border-red-500"
+                  title="Logout"
+                  onClick={handleLogOut}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    />
+                  </svg>
+                </button>
+              </>
+            ) : (
+              <NavLink
+                to="/Login"
+                className={({ isActive }) =>
+                  isActive ? activeClassName : notActiveClassName
+                }
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l3 3m0 0l3-3m-3 3V2.25"
-                />
-              </svg>
-              Login
-            </NavLink>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l3 3m0 0l3-3m-3 3V2.25"
+                  />
+                </svg>
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
