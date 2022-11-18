@@ -56,6 +56,7 @@ const CourseDetails = ({ course }) => {
         <Link
           key={id}
           to={`/CheckOut/${id}`}
+          state={{ name: name, logo: logo }}
           className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500"
         >
           Get Premium Access
