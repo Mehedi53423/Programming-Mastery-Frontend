@@ -10,7 +10,7 @@ const FAQ = () => {
           <img src={Questions} alt="Questions" />
         </div>
         <div className="md:w-1/2">
-          <h1 className="text-center font-bold text-3xl mb-10">
+          <h1 className="text-center font-bold text-3xl mb-10 font-merienda">
             Frequently Asked Questions
           </h1>
           <Accordion alwaysOpen={true} flush={true}>

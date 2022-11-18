@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="container mx-auto md:mt-36 mt-10 md:mb-24">
+    <div className="container mx-auto md:mt-36 mt-10 md:mb-24 font-merienda">
       <div className="flex justify-center">
         {user?.photoURL ? (
           <img

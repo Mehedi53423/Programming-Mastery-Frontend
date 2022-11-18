@@ -10,6 +10,7 @@ import Login from "../components/Login";
 import Signup from "../components/Signup";
 import UserProfile from "../components/UserProfile";
 import CheckOut from "../components/CheckOut";
+import TermsAndConditions from "../components/TermsAndConditions";
 import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -57,6 +58,10 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/Courses/${params.id}`),
+      },
+      {
+        path: "TermsAndConditions",
+        element: <TermsAndConditions></TermsAndConditions>,
       },
       { path: "*", element: <Error></Error> },
     ],

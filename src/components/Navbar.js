@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="md:container md:mx-auto md:fixed md:top-0 md:left-0 md:right-0 md:border-b-2">
+    <div className="md:container md:mx-auto md:fixed md:top-0 md:left-0 md:right-0 md:border-b-2 font-merienda">
       <div className="md:flex md:justify-between bg-white py-2 hidden items-center w-full left-auto right-auto">
         <NavLink
           className="font-bold text-3xl text-[#2D357D] flex items-center"

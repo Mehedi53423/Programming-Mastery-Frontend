@@ -9,6 +9,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
+  const [accepted, setAccepted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,8 +43,13 @@ const Signup = () => {
       .then(() => {})
       .catch((e) => console.error(e));
   };
+
+  const handleAccepted = (e) => {
+    setAccepted(e.target.checked);
+  };
+
   return (
-    <div className="container mx-auto md:mt-36 mt-10">
+    <div className="container mx-auto md:mt-36 mt-10 font-merienda">
       <div className="md:flex items-center">
         <div className="md:w-1/2 py-24 md:drop-shadow-2xl">
           <h1 className="text-center font-bold text-2xl">Signup</h1>
@@ -91,13 +97,42 @@ const Signup = () => {
                 required
               />
             </label>
-            <button
-              type="submit"
-              className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
-            >
-              <i className="fa-solid fa-user-plus pr-1"></i>
-              Signup
-            </button>
+            <div class="md:flex items-center mt-5 justify-center text-center">
+              <input
+                id="link-checkbox"
+                type="checkbox"
+                value=""
+                className="w-4 h-4 text-[#2D357D] rounded focus:ring-0 focus:ring-inherit"
+                onClick={handleAccepted}
+              />
+              <label for="link-checkbox" class="ml-2 text-lg font-bold">
+                I Agree With The{" "}
+                <a
+                  href="/TermsAndConditions"
+                  className="text-[#2D357D] hover:text-indigo-600"
+                >
+                  Terms & Conditions
+                </a>
+                .
+              </label>
+            </div>
+            {accepted ? (
+              <button
+                type="submit"
+                className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
+              >
+                <i className="fa-solid fa-user-plus pr-1"></i>
+                Signup
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2d357d8c] text-white"
+              >
+                <i className="fa-solid fa-user-plus pr-1"></i>
+                Signup
+              </button>
+            )}
             <div className="font-bold text-lg hidden md:block">
               Already Have An Account?{" "}
               <a href="/Login" className="text-[#2D357D] hover:text-indigo-600">
@@ -114,21 +149,6 @@ const Signup = () => {
               </NavLink>
             </div>
           </form>
-          <div className="flex justify-center">
-            <div className="border-t-2 w-full mt-3"></div>
-            <p className="font-semibold text-lg px-2 text-gray-400">Or</p>
-            <div className="border-t-2 w-full mt-3"></div>
-          </div>
-          <div className="flex flex-col items-center">
-            <button className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit">
-              <i className="fa-brands fa-google mr-2"></i>
-              Signup by Google
-            </button>
-            <button className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit">
-              <i className="fa-brands fa-github mr-2"></i>
-              Signup by Github
-            </button>
-          </div>
           <div>
             {error ? (
               <h1 className="text-lg text-red-700 text-center m-4 p-2 border border-red-700 rounded-lg bg-red-300">

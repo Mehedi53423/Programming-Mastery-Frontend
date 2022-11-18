@@ -15,7 +15,9 @@ const CourseDetails = ({ course }) => {
       <div className="flex justify-center">
         <img src={logo} alt="Logo" className="w-28 h-28" />
       </div>
-      <h1 className="text-2xl font-bold text-center my-5">{name}</h1>
+      <h1 className="text-2xl font-bold text-center my-5 font-merienda">
+        {name}
+      </h1>
       <h2 className="text-xl font-bold text-center mb-5">
         Detailed Course Outline
         <ReactToPdf
@@ -56,7 +58,7 @@ const CourseDetails = ({ course }) => {
         <Link
           key={id}
           to={`/CheckOut/${id}`}
-          className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500"
+          className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500 font-merienda"
         >
           Get Premium Access
         </Link>

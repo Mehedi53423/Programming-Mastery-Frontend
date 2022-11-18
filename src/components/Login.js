@@ -50,7 +50,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto md:mt-36 mt-10">
+    <div className="container mx-auto md:mt-36 mt-10 font-merienda">
       <div className="md:flex items-center">
         <div className="md:w-1/2 md:flex hidden justify-center">
           <img src={LoginGif} alt="Login" />

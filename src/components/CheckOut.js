@@ -5,7 +5,7 @@ const CheckOut = () => {
   const course = useLoaderData();
   const { name, logo } = course;
   return (
-    <div className="container mx-auto md:mt-36 mt-10">
+    <div className="container mx-auto md:mt-36 mt-10 font-merienda">
       <div className="flex justify-center">
         <img src={logo} alt="Logo" className="w-28 h-28" />
       </div>

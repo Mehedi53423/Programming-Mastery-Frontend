@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-center lg:fixed lg:bottom-0 lg:bg-white w-full mt-5">
+    <footer className="flex justify-center lg:fixed lg:bottom-0 lg:bg-white w-full mt-5 font-merienda">
       <div className="border-t-2 container py-5">
         <div className="md:flex justify-between font-bold text-lg">
           <p className="pl-5 hidden md:block">
