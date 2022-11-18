@@ -4,7 +4,7 @@ import SignupGif from "../assets/Signup.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 
 const Signup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -15,6 +15,7 @@ const Signup = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photoURL = form.photoURL.value;
     const password = form.password.value;
 
     createUser(email, password)
@@ -24,11 +25,22 @@ const Signup = () => {
         form.reset();
         setError("");
         navigate("/");
+        handleUpdateUserProfile(name, photoURL);
       })
       .catch((e) => {
         console.error(e);
         setError(e.message);
       });
+  };
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((e) => console.error(e));
   };
   return (
     <div className="container mx-auto md:mt-36 mt-10">
@@ -51,13 +63,22 @@ const Signup = () => {
               />
             </label>
             <label className="flex items-center justify-center text-xl w-full">
-              <i class="fa-solid fa-envelope border p-3 rounded-l-lg"></i>
+              <i className="fa-solid fa-envelope border p-3 rounded-l-lg"></i>
               <input
                 type="email"
                 className="border-l-0 border-slate-200 my-4 py-2.5 rounded-r-lg outline-none md:w-1/2 focus:ring-0 focus:border-slate-200"
                 placeholder="Email"
                 name="email"
                 required
+              />
+            </label>
+            <label className="flex items-center justify-center text-xl w-full">
+              <i className="fa-solid fa-image border p-3 mb-4 rounded-l-lg"></i>
+              <input
+                type="text"
+                className="border-l-0 border-slate-200 mb-4 py-2.5 rounded-r-lg outline-none md:w-1/2 focus:ring-0 focus:border-slate-200"
+                placeholder="Photo URL"
+                name="photoURL"
               />
             </label>
             <label className="flex items-center justify-center text-xl w-full">
@@ -77,12 +98,21 @@ const Signup = () => {
               <i className="fa-solid fa-user-plus pr-1"></i>
               Signup
             </button>
-            <a href="/Login" className="font-bold text-lg hidden md:block">
-              Already Have An Account?
-            </a>
-            <NavLink to="/Login" className="font-bold text-lg md:hidden block">
-              Already Have An Account?
-            </NavLink>
+            <div className="font-bold text-lg hidden md:block">
+              Already Have An Account?{" "}
+              <a href="/Login" className="text-[#2D357D] hover:text-indigo-600">
+                Login
+              </a>
+            </div>
+            <div className="font-bold text-lg md:hidden block">
+              Already Have An Account?{" "}
+              <NavLink
+                to="/Login"
+                className="text-[#2D357D] hover:text-indigo-600"
+              >
+                Login
+              </NavLink>
+            </div>
           </form>
           <div className="flex justify-center">
             <div className="border-t-2 w-full mt-3"></div>

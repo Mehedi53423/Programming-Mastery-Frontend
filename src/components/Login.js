@@ -92,12 +92,24 @@ const Login = () => {
               <i class="fa-solid fa-right-to-bracket pr-1"></i>
               Login
             </button>
-            <a href="/Signup" className="font-bold text-lg hidden md:block">
-              Don't Have An Account?
-            </a>
-            <NavLink to="/Signup" className="font-bold text-lg md:hidden block">
-              Don't Have An Account?
-            </NavLink>
+            <div href="/Signup" className="font-bold text-lg hidden md:block">
+              Don't Have An Account?{" "}
+              <a
+                href="/Signup"
+                className="text-[#2D357D] hover:text-indigo-600"
+              >
+                Signup
+              </a>
+            </div>
+            <div className="font-bold text-lg md:hidden block">
+              Don't Have An Account?{" "}
+              <NavLink
+                to="/Signup"
+                className="text-[#2D357D] hover:text-indigo-600"
+              >
+                Signup
+              </NavLink>
+            </div>
           </form>
           <div className="flex justify-center">
             <div className="border-t-2 w-full mt-3"></div>
@@ -117,8 +129,14 @@ const Login = () => {
               Login by Github
             </button>
           </div>
-          <div className="text-2xl text-red-700">
-            <h1>{error}</h1>
+          <div>
+            {error ? (
+              <h1 className="text-lg text-red-700 text-center m-4 p-2 border border-red-700 rounded-lg bg-red-300">
+                {error}
+              </h1>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>
