@@ -9,6 +9,8 @@ import Home from "../components/Home";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import UserProfile from "../components/UserProfile";
+import CheckOut from "../components/CheckOut";
+import PrivateRoute from "./PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -38,7 +40,22 @@ export const routes = createBrowserRouter([
       { path: "Blog", element: <Blog></Blog> },
       { path: "Login", element: <Login></Login> },
       { path: "Signup", element: <Signup></Signup> },
-      { path: "UserProfile", element: <UserProfile></UserProfile> },
+      {
+        path: "UserProfile",
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "CheckOut/:id",
+        element: (
+          <PrivateRoute>
+            <CheckOut></CheckOut>
+          </PrivateRoute>
+        ),
+      },
       { path: "*", element: <Error></Error> },
     ],
   },

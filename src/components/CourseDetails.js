@@ -1,5 +1,6 @@
 import React from "react";
 import ReactToPdf from "react-to-pdf";
+import { Link } from "react-router-dom";
 
 const CourseDetails = ({ course }) => {
   const ref = React.createRef();
@@ -8,7 +9,7 @@ const CourseDetails = ({ course }) => {
     unit: "in",
     format: [14, 9],
   };
-  const { name, logo, details } = course;
+  const { id, name, logo, details } = course;
   return (
     <div ref={ref}>
       <div className="flex justify-center">
@@ -52,9 +53,13 @@ const CourseDetails = ({ course }) => {
         ))}
       </p>
       <div className="text-center mt-5">
-        <button className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500">
+        <Link
+          key={id}
+          to={`/CheckOut/${id}`}
+          className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500"
+        >
           Get Premium Access
-        </button>
+        </Link>
       </div>
     </div>
   );
