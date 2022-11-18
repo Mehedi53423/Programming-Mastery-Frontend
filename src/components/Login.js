@@ -1,26 +1,31 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import LoginGif from "../assets/Login.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
   const googleAuthProvider = new GoogleAuthProvider();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Google Login
   const handleGoogleSignIn = () => {
     providerLogin(googleAuthProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
 
+  // Email & Password Login
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -33,7 +38,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((e) => {
         console.error(e);
