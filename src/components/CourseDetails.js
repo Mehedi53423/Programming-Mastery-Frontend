@@ -51,6 +51,11 @@ const CourseDetails = ({ course }) => {
           </>
         ))}
       </p>
+      <div className="text-center mt-5">
+        <button className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500">
+          Get Premium Access
+        </button>
+      </div>
     </div>
   );
 };

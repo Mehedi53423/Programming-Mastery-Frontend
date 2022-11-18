@@ -22,6 +22,7 @@ const Signup = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError("");
         navigate("/");
       })
       .catch((e) => {
