@@ -129,8 +129,14 @@ const Signup = () => {
               Signup by Github
             </button>
           </div>
-          <div className="text-2xl text-red-700">
-            <h1>{error}</h1>
+          <div>
+            {error ? (
+              <h1 className="text-lg text-red-700 text-center m-4 p-2 border border-red-700 rounded-lg bg-red-300">
+                {error}
+              </h1>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className="md:w-1/2 md:flex hidden justify-center">
