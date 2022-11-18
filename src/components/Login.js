@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import LoginGif from "../assets/Login.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
@@ -8,6 +8,7 @@ const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
   const googleAuthProvider = new GoogleAuthProvider();
 
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
@@ -15,6 +16,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate("/");
       })
       .catch((error) => console.error(error));
   };
@@ -30,9 +32,13 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        setError("");
         navigate("/");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
 
   return (
@@ -102,6 +108,9 @@ const Login = () => {
               <i className="fa-brands fa-github mr-2"></i>
               Login by Github
             </button>
+          </div>
+          <div className="text-2xl text-red-700">
+            <h1>{error}</h1>
           </div>
         </div>
       </div>

@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import SignupGif from "../assets/Signup.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +22,12 @@ const Signup = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        navigate("/");
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
   return (
     <div className="container mx-auto md:mt-36 mt-10">
@@ -89,6 +97,9 @@ const Signup = () => {
               <i className="fa-brands fa-github mr-2"></i>
               Signup by Github
             </button>
+          </div>
+          <div className="text-2xl text-red-700">
+            <h1>{error}</h1>
           </div>
         </div>
         <div className="md:w-1/2 md:flex hidden justify-center">
