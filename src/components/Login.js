@@ -22,7 +22,10 @@ const Login = () => {
         console.log(user);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      });
   };
 
   // Email & Password Login
