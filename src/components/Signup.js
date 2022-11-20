@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import SignupGif from "../assets/Signup.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Signup = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, verifyEmail } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -27,6 +29,8 @@ const Signup = () => {
         setError("");
         navigate("/");
         handleUpdateUserProfile(name, photoURL);
+        handleEmailVerification();
+        toast.success("Please Verify Your Email Address");
       })
       .catch((e) => {
         console.error(e);
@@ -46,6 +50,12 @@ const Signup = () => {
 
   const handleAccepted = (e) => {
     setAccepted(e.target.checked);
+  };
+
+  const handleEmailVerification = () => {
+    verifyEmail()
+      .then(() => {})
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -126,8 +136,8 @@ const Signup = () => {
               </button>
             ) : (
               <button
-                type="submit"
                 className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2d357d8c] text-white"
+                disabled
               >
                 <i className="fa-solid fa-user-plus pr-1"></i>
                 Signup
