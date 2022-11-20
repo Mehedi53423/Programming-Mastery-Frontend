@@ -1,8 +1,9 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import LoginGif from "../assets/Login.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
@@ -11,7 +12,6 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   // Google Login
@@ -21,10 +21,10 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         navigate(from, { replace: true });
+        toast.success("Successfully Logged In");
       })
       .catch((e) => {
-        console.error(e);
-        setError(e.message);
+        toast.error(e.message);
       });
   };
 
@@ -40,12 +40,11 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        setError("");
         navigate(from, { replace: true });
+        toast.success("Successfully Logged In");
       })
       .catch((e) => {
-        console.error(e);
-        setError(e.message);
+        toast.error(e.message);
       });
   };
 
@@ -128,15 +127,6 @@ const Login = () => {
               <i className="fa-brands fa-github mr-2"></i>
               Login by Github
             </button>
-          </div>
-          <div>
-            {error ? (
-              <h1 className="text-lg text-red-700 text-center m-4 p-2 border border-red-700 rounded-lg bg-red-300">
-                {error}
-              </h1>
-            ) : (
-              <></>
-            )}
           </div>
         </div>
       </div>

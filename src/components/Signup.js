@@ -9,8 +9,6 @@ const Signup = () => {
     useContext(AuthContext);
 
   const navigate = useNavigate();
-
-  const [error, setError] = useState("");
   const [accepted, setAccepted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -26,15 +24,13 @@ const Signup = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        setError("");
         navigate("/");
         handleUpdateUserProfile(name, photoURL);
         handleEmailVerification();
         toast.success("Please Verify Your Email Address");
       })
       .catch((e) => {
-        console.error(e);
-        setError(e.message);
+        toast.error(e.message);
       });
   };
 
@@ -159,15 +155,6 @@ const Signup = () => {
               </NavLink>
             </div>
           </form>
-          <div>
-            {error ? (
-              <h1 className="text-lg text-red-700 text-center m-4 p-2 border border-red-700 rounded-lg bg-red-300">
-                {error}
-              </h1>
-            ) : (
-              <></>
-            )}
-          </div>
         </div>
         <div className="md:w-1/2 md:flex hidden justify-center">
           <img src={SignupGif} alt="Signup" />
