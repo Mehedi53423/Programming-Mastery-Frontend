@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import LoginGif from "../assets/Login.gif";
@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
   const googleAuthProvider = new GoogleAuthProvider();
+  const githubAuthProvider = new GithubAuthProvider();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || "/";
@@ -17,6 +18,19 @@ const Login = () => {
   // Google Login
   const handleGoogleSignIn = () => {
     providerLogin(googleAuthProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+        toast.success("Successfully Logged In");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    providerLogin(githubAuthProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -123,7 +137,10 @@ const Login = () => {
               <i className="fa-brands fa-google mr-2"></i>
               Login by Google
             </button>
-            <button className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit">
+            <button
+              onClick={handleGithubSignIn}
+              className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit"
+            >
               <i className="fa-brands fa-github mr-2"></i>
               Login by Github
             </button>
