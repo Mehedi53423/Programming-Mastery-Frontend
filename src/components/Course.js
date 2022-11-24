@@ -1,18 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import CourseDetails from "./CourseDetails";
 import { useLoaderData } from "react-router-dom";
 
 const Course = () => {
   const course = useLoaderData();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
   return (
     <div className="container mx-auto md:mt-36 mt-10 md:mb-24">
-      <div className="flex">
-        <div className="w-1/6 fixed">
+      <div className="md:flex">
+        <div className="grid grid-cols-3 gap-2 md:hidden mt-2 mb-5 mx-2">
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              to={`/Course/${category.id}`}
+              className="p-1 border rounded-lg font-semibold text-lg font-merienda text-center"
+            >
+              {category.name}
+            </Link>
+          ))}
+        </div>
+        <div className="md:w-1/6 md:fixed hidden md:block">
           <Sidebar className=""></Sidebar>
         </div>
-        <div className="w-1/6"></div>
-        <div className="w-5/6">
+        <div className="md:w-1/6"></div>
+        <div className="md:w-5/6">
           <CourseDetails key={course.id} course={course}></CourseDetails>
         </div>
       </div>
