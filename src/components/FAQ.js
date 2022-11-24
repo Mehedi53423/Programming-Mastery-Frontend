@@ -5,8 +5,8 @@ import { Accordion } from "flowbite-react";
 const FAQ = () => {
   return (
     <div className="container mx-auto md:mt-36 mt-10">
-      <div className="flex justify-center">
-        <div className="md:w-1/2 flex justify-center items-center my-16">
+      <div className="md:flex justify-center">
+        <div className="md:w-1/2 md:flex justify-center items-center my-16 hidden">
           <img src={Questions} alt="Questions" />
         </div>
         <div className="md:w-1/2">
