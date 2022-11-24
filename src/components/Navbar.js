@@ -302,9 +302,24 @@ const Navbar = () => {
         <NavLink to="/Blog" className="px-3 py-1 text-[#2D357D]">
           Blog
         </NavLink>
-        <NavLink to="/Login" className="px-3 py-1 text-[#2D357D]">
-          Login
-        </NavLink>
+        {user ? (
+          <>
+            <NavLink to="/UserProfile" className="px-3 py-1 text-[#2D357D]">
+              {user?.displayName}
+            </NavLink>
+            <button
+              className="ml-4 px-2 py-1 text-red-600"
+              title="Logout"
+              onClick={handleLogOut}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <NavLink to="/Login" className="px-3 py-1 text-[#2D357D]">
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );
