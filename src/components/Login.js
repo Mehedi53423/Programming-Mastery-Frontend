@@ -1,12 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import LoginGif from "../assets/Login.gif";
 import { AuthContext } from "../contexts/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { providerLogin, signIn } = useContext(AuthContext);
+  const { providerLogin, signIn, forgetPassword } = useContext(AuthContext);
   const googleAuthProvider = new GoogleAuthProvider();
   const githubAuthProvider = new GithubAuthProvider();
   const location = useLocation();
@@ -14,6 +14,8 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   const navigate = useNavigate();
+
+  const [userEmail, setUserEmail] = useState("");
 
   // Google Login
   const handleGoogleSignIn = () => {
@@ -29,6 +31,7 @@ const Login = () => {
       });
   };
 
+  // Github Login
   const handleGithubSignIn = () => {
     providerLogin(githubAuthProvider)
       .then((result) => {
@@ -62,6 +65,23 @@ const Login = () => {
       });
   };
 
+  const handleEmailBlur = (e) => {
+    const email = e.target.value;
+    setUserEmail(email);
+  };
+
+  const handleForgetPassword = () => {
+    forgetPassword(userEmail)
+      .then(() => {
+        toast.success(
+          `Password Reset Email Was Sent To Your Email Address, ${userEmail}`
+        );
+      })
+      .catch((e) => {
+        toast.error(e.message);
+      });
+  };
+
   return (
     <div className="container mx-auto md:mt-36 mt-10 font-merienda">
       <div className="md:flex items-center">
@@ -82,6 +102,7 @@ const Login = () => {
                 className="border-l-0 border-slate-200 my-4 py-2.5 rounded-r-lg outline-none md:w-1/2 focus:ring-0 focus:border-slate-200"
                 placeholder="Email"
                 name="email"
+                onBlur={handleEmailBlur}
                 required
               />
             </label>
@@ -95,8 +116,16 @@ const Login = () => {
                 required
               />
             </label>
-            <div className="w-4/6 pr-10 text-right text-lg mt-3">
-              <a href="/">Forgot Password?</a>
+            <div className="w-4/6 text-right text-lg mt-3 pr-10">
+              <p>
+                Forgot Password?{" "}
+                <Link
+                  onClick={handleForgetPassword}
+                  className="text-[#2D357D] hover:text-indigo-600"
+                >
+                  Reset
+                </Link>
+              </p>
             </div>
             <button
               className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"

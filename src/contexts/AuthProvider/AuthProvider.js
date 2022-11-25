@@ -8,6 +8,7 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
@@ -51,6 +52,10 @@ const AuthProvider = ({ children }) => {
     return sendEmailVerification(auth.currentUser);
   };
 
+  const forgetPassword = (userEmail) => {
+    return sendPasswordResetEmail(auth, userEmail);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -70,6 +75,7 @@ const AuthProvider = ({ children }) => {
     loading,
     updateUserProfile,
     verifyEmail,
+    forgetPassword,
   };
 
   return (
