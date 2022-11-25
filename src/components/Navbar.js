@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const activeClassName =
-    "px-3 py-1 text-indigo-500 underline hover:text-indigo-600 flex items-center";
+    "px-3 py-1 text-indigo-500 hover:text-indigo-600 flex items-center";
   const notActiveClassName =
     "px-3 py-1 hover:text-indigo-600 flex items-center";
   const mobileNavClicked =

@@ -9,7 +9,9 @@ const Course = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch(
+      "https://programming-mastery-server-mehedi53423.vercel.app/categories"
+    )
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);

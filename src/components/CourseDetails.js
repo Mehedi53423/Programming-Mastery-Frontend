@@ -9,6 +9,11 @@ const CourseDetails = ({ course }) => {
     unit: "in",
     format: [14, 9],
   };
+  const mobileOptions = {
+    orientation: "portrait",
+    unit: "in",
+    format: [22, 6],
+  };
   const { id, name, logo, details } = course;
   return (
     <div ref={ref}>
@@ -18,13 +23,34 @@ const CourseDetails = ({ course }) => {
       <h1 className="text-2xl font-bold text-center my-5 font-merienda">
         {name}
       </h1>
-      <h2 className="text-xl font-bold text-center mb-5">
+      <h2 className="text-xl font-bold text-center mb-5 md:block hidden">
         Detailed Course Outline
         <ReactToPdf
           targetRef={ref}
           filename={`${name} Course Outline.pdf`}
           options={options}
           x={-2}
+          y={0.5}
+          scale={1}
+        >
+          {({ toPdf }) => (
+            <button
+              onClick={toPdf}
+              className="pl-2"
+              title="Download Course Outline"
+            >
+              <i class="fa-solid fa-download"></i>
+            </button>
+          )}
+        </ReactToPdf>
+      </h2>
+      <h2 className="text-xl font-bold text-center mb-5 block md:hidden">
+        Detailed Course Outline
+        <ReactToPdf
+          targetRef={ref}
+          filename={`${name} Course Outline.pdf`}
+          options={mobileOptions}
+          x={0.5}
           y={0.5}
           scale={1}
         >

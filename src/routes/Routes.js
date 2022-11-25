@@ -30,12 +30,17 @@ export const routes = createBrowserRouter([
         path: "Course/:id",
         element: <Course></Course>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Courses/${params.id}`),
+          fetch(
+            `https://programming-mastery-server-mehedi53423.vercel.app/${params.id}`
+          ),
       },
       {
         path: "Courses",
         element: <Courses></Courses>,
-        loader: () => fetch(`http://localhost:5000/categories`),
+        loader: () =>
+          fetch(
+            `https://programming-mastery-server-mehedi53423.vercel.app/categories`
+          ),
       },
       { path: "FAQ", element: <FAQ></FAQ> },
       { path: "Blog", element: <Blog></Blog> },
@@ -57,7 +62,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/Courses/${params.id}`),
+          fetch(
+            `https://programming-mastery-server-mehedi53423.vercel.app/${params.id}`
+          ),
       },
       {
         path: "TermsAndConditions",
