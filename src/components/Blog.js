@@ -3,10 +3,10 @@ import BlogGif from "../assets/Blog.gif";
 
 const Blog = () => {
   return (
-    <div className="container mx-auto md:mt-36 md:mb-28 mt-10">
+    <div className="container mx-auto md:mt-36 md:mb-28 mt-10 font-messiri">
       <div className="flex justify-center">
         <div className="md:w-1/2">
-          <h1 className="font-bold text-3xl text-center font-merienda">Blog</h1>
+          <h1 className="font-bold text-3xl text-center">Blog</h1>
           <div>
             <article className="border p-5 rounded-lg my-5 shadow-lg">
               <h1 className="text-xl font-bold">1. What is "cors"?</h1>

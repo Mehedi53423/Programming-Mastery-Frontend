@@ -16,14 +16,14 @@ const Course = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div className="container mx-auto md:mt-36 mt-10 md:mb-24">
+    <div className="container mx-auto md:mt-36 mt-10 md:mb-24 font-messiri">
       <div className="md:flex">
         <div className="grid grid-cols-3 gap-2 md:hidden mt-2 mb-5 mx-2">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={`/Course/${category.id}`}
-              className="p-1 border rounded-lg font-semibold text-lg font-merienda text-center"
+              className="p-1 border rounded-lg font-semibold text-lg text-center"
             >
               {category.name}
             </Link>

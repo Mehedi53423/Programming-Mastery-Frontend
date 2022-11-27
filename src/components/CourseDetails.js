@@ -12,17 +12,15 @@ const CourseDetails = ({ course }) => {
   const mobileOptions = {
     orientation: "portrait",
     unit: "in",
-    format: [22, 6],
+    format: [16, 5],
   };
   const { id, name, logo, details } = course;
   return (
-    <div ref={ref}>
+    <div ref={ref} className="font-messiri">
       <div className="flex justify-center">
         <img src={logo} alt="Logo" className="w-28 h-28" />
       </div>
-      <h1 className="text-2xl font-bold text-center my-5 font-merienda">
-        {name}
-      </h1>
+      <h1 className="text-2xl font-bold text-center my-5">{name}</h1>
       <h2 className="text-xl font-bold text-center mb-5 md:block hidden">
         Detailed Course Outline
         <ReactToPdf
@@ -68,8 +66,8 @@ const CourseDetails = ({ course }) => {
       <p className="text-lg font-semibold flex flex-col items-center">
         {details.map((detail) => (
           <>
-            <p className="md:w-1/3 font-bold">{detail.name}</p>
-            <p className="w-1/3 pl-10">
+            <p className="md:w-1/3 w-4/5 font-bold">{detail.name}</p>
+            <p className="md:w-1/3 w-3/4 pl-10">
               {detail.steps.map((step) => (
                 <p>
                   <i class="fa-solid fa-hashtag"></i>
@@ -84,7 +82,7 @@ const CourseDetails = ({ course }) => {
         <Link
           key={id}
           to={`/CheckOut/${id}`}
-          className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500 font-merienda"
+          className="border px-3 py-1 font-semibold text-lg rounded-lg hover:text-white hover:bg-indigo-500 font-messiri"
         >
           Get Premium Access
         </Link>

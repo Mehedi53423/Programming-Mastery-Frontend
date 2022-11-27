@@ -7,7 +7,7 @@ const CourseCard = ({ course }) => {
     <Link
       key={id}
       to={`/Course/${id}`}
-      className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md pt-5 hover:-translate-y-2 font-merienda"
+      className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md pt-5 hover:-translate-y-2 font-messiri mx-2 md:mx-0"
     >
       <img className="w-32 h-32 mx-auto" src={logo} alt="Logo" />
       <div className="p-5">

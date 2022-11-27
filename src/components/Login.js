@@ -83,7 +83,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto md:mt-36 mt-10 font-merienda">
+    <div className="container mx-auto md:mt-36 mt-10 font-messiri">
       <div className="md:flex items-center">
         <div className="md:w-1/2 md:flex hidden justify-center">
           <img src={LoginGif} alt="Login" />
@@ -116,7 +116,7 @@ const Login = () => {
                 required
               />
             </label>
-            <div className="w-4/6 text-right text-lg mt-3 pr-10">
+            <div className="w-4/6 md:text-right text-center text-lg mt-3 md:pr-10">
               <p>
                 Forgot Password?{" "}
                 <Link
@@ -128,7 +128,7 @@ const Login = () => {
               </p>
             </div>
             <button
-              className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
+              className="border pt-2 pb-1 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
               type="submit"
             >
               <i class="fa-solid fa-right-to-bracket pr-1"></i>
@@ -161,14 +161,14 @@ const Login = () => {
           <div className="flex flex-col items-center">
             <button
               onClick={handleGoogleSignIn}
-              className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit"
+              className="border pt-2 pb-1 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit"
             >
               <i className="fa-brands fa-google mr-2"></i>
               Login by Google
             </button>
             <button
               onClick={handleGithubSignIn}
-              className="border pt-1 pb-2 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit"
+              className="border pt-2 pb-1 px-4 mt-5 rounded-full bg-[#2D357D] text-white hover:bg-indigo-600 w-fit"
             >
               <i className="fa-brands fa-github mr-2"></i>
               Login by Github

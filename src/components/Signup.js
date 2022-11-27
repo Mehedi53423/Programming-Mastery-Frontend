@@ -55,7 +55,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="container mx-auto md:mt-36 mt-10 font-merienda">
+    <div className="container mx-auto md:mt-36 mt-10 font-messiri">
       <div className="md:flex items-center">
         <div className="md:w-1/2 py-24 md:drop-shadow-2xl">
           <h1 className="text-center font-bold text-2xl">Signup</h1>
@@ -125,14 +125,14 @@ const Signup = () => {
             {accepted ? (
               <button
                 type="submit"
-                className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
+                className="border pt-2 pb-1 px-4 rounded-full my-5 bg-[#2D357D] text-white hover:bg-indigo-600"
               >
                 <i className="fa-solid fa-user-plus pr-1"></i>
                 Signup
               </button>
             ) : (
               <button
-                className="border pt-1 pb-2 px-4 rounded-full my-5 bg-[#2d357d8c] text-white"
+                className="border pt-2 pb-1 px-4 rounded-full my-5 bg-[#2d357d8c] text-white"
                 disabled
               >
                 <i className="fa-solid fa-user-plus pr-1"></i>

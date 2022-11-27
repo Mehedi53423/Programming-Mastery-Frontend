@@ -31,7 +31,7 @@ export const routes = createBrowserRouter([
         element: <Course></Course>,
         loader: ({ params }) =>
           fetch(
-            `https://programming-mastery-server-mehedi53423.vercel.app/${params.id}`
+            `https://programming-mastery-server-3ztlqt5jd-mehedi53423.vercel.app/courses/${params.id}`
           ),
       },
       {
@@ -39,7 +39,7 @@ export const routes = createBrowserRouter([
         element: <Courses></Courses>,
         loader: () =>
           fetch(
-            `https://programming-mastery-server-mehedi53423.vercel.app/categories`
+            `https://programming-mastery-server-3ztlqt5jd-mehedi53423.vercel.app/categories`
           ),
       },
       { path: "FAQ", element: <FAQ></FAQ> },
@@ -63,7 +63,7 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://programming-mastery-server-mehedi53423.vercel.app/${params.id}`
+            `https://programming-mastery-server-3ztlqt5jd-mehedi53423.vercel.app/courses/${params.id}`
           ),
       },
       {

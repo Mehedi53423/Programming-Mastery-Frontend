@@ -10,10 +10,8 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext);
 
-  const activeClassName =
-    "px-3 py-1 text-indigo-500 hover:text-indigo-600 flex items-center";
-  const notActiveClassName =
-    "px-3 py-1 hover:text-indigo-600 flex items-center";
+  const activeClassName = "px-3 text-indigo-500 hover:text-indigo-600 flex";
+  const notActiveClassName = "px-3 hover:text-indigo-600 flex";
   const mobileNavClicked =
     "flex flex-col items-center md:hidden bg-white rounded-b-xl container mx-auto pb-4 shadow-xl text-xl";
   const mobileNavNotClicked = "hidden";
@@ -40,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="md:container md:mx-auto md:fixed md:top-0 md:left-0 md:right-0 md:border-b-2 font-merienda">
+    <div className="md:container md:mx-auto md:fixed md:top-0 md:left-0 md:right-0 md:border-b-2 font-messiri">
       <div className="md:flex md:justify-between bg-white py-2 hidden items-center w-full left-auto right-auto">
         <NavLink
           className="font-bold text-3xl text-[#2D357D] flex items-center"
@@ -49,7 +47,7 @@ const Navbar = () => {
           <img src={Logo} className="h-16" alt="Logo" />
           <div className="font-merienda">{title}</div>
         </NavLink>
-        <div className="font-bold text-2xl text-[#2D357D] flex">
+        <div className="font-bold text-2xl text-[#2D357D] flex items-center">
           <NavLink
             to="/Home"
             className={({ isActive }) =>
@@ -62,7 +60,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
@@ -84,7 +82,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
@@ -106,7 +104,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
@@ -186,7 +184,7 @@ const Navbar = () => {
                   {user?.photoURL ? (
                     <img
                       src={user.photoURL}
-                      alt="Profile pic"
+                      alt="Profile Pic"
                       title={user?.displayName}
                       className="rounded-full w-12"
                     />
@@ -249,7 +247,7 @@ const Navbar = () => {
             to="/"
           >
             <img src={Logo} className="h-10" alt="Logo" />
-            <div className="font-merienda">{title}</div>
+            <div className="">{title}</div>
           </NavLink>
         </div>
         <button
